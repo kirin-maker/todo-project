@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #17202a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.App {
+  text-align: center;
+}
+
+h1 {
+  color: #fff;
+  margin-bottom: 0.5rem;
+  font-size: 1.75rem;
+}
+
+.TodoWrapper {
+  background: #34495e;
+  margin-top: 5rem;
+  padding: 2rem;
+  border-radius: 5px;
+  border: 2px solid #7aaed2;
+}
+
+.TodoForm {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.todo-input {
+  outline: none;
+  background: none;
+  border: 1px solid #aed6f1;
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  width: 300px;
+  height: 50px;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.todo-input::placeholder {
+  color: #fff;
+}
+
+.todo-btn {
+  background: #aed6f1;
+  color: #1b4f72;
+  border: none;
+  padding: 0.55rem;
+  cursor: pointer;
+  border-radius: 5px;
+  height: 50px;
+}
+
+.todo-btn:hover {
+  transform: scale(1.05);
+  background: #1b4f72;
+  color: #aed6f1;
+  transition: all 0.4s ease;
+}
+
+.Todo {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #aed6f1;
+  color: #1b4f72;
+  padding: 0.75rem 1rem;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  overflow: hidden; /* ซ่อนส่วนที่เกินออกมา */
+  z-index: 0; /* เนื้อหาปุ่มอยู่เหนือ pseudo-element */
+  transition: transform 0.4s ease; /* สำหรับเอฟเฟกต์ขยาย */
+}
+
+.Todo:hover {
+  transform: scale(1.05);
+}
+
+.Todo::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: #7aaed2; /* สีเอฟเฟกต์ */
+  z-index: -1; /* ซ่อน pseudo-element ใต้เนื้อหา */
+  transition: left 0.4s ease;
+}
+
+.Todo:hover::before {
+  left: 0;
+}
+
+
+
+.fa-trash {
+  margin-left: 0.75rem;
+}
+
+.incompleted {
+  color: #17202a;
+  cursor: pointer;
+}
+
+.completed {
+  color: #c5aeff;
+  text-decoration: line-through;
+  cursor: pointer;
+}
+
+.edit-icon {
+  cursor: pointer;
+}
+.delete-icon {
+  cursor: pointer;
+}
+ 
+.edit-icon :hover {
+  transform: scale(1.2);
+  transition: all 0.4s ease;
+}
+.delete-icon :hover {
+  transform: scale(1.2);
+  transition: all 0.4s ease;
+}
